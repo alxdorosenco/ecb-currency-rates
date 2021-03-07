@@ -21,12 +21,17 @@ $ composer require alxdorosenco/ecb-rates
 require __DIR__ . '/vendor/autoload.php';
 use AlxDorosenco\EcbRates\CurrencyRates;
 
-$daily = CurrencyRates::daily(); // Latest rate attributes initialization
+// Latest rate attributes initialization
+$daily = CurrencyRates::daily();
 
-$daily->rate(20, 'EUR', 'USD');  // Convert EUR to USD
-$daily->euroTo(20, 'USD');       // Convert EUR to USD - special option
+// Convert EUR to USD
+$daily->rate(20, 'EUR', 'USD');
 
-$daily->rate(20, 'USD', 'JPY');  // Convert USD to JPY
+// Convert EUR to USD - special option
+$daily->euroTo(20, 'USD');
+
+// Convert USD to JPY
+$daily->rate(20, 'USD', 'JPY');
 
 ```
 
@@ -41,13 +46,23 @@ use AlxDorosenco\EcbRates\CurrencyRates;
 
 $history = CurrencyRates::history(); // History rate attributes initialization
 
-$history->findByDate('2021-02-10');                           // Get array of the rate attributes to the 2021-02-10 date
-$history->findByDate('2021-02-10')->rate(20, 'EUR', 'USD');   // Convert EUR to USD from the rate attributes to the 2021-02-10 date
-$history->findByDate('2021-02-10')->euroTo(20, 'EUR', 'USD'); // Convert EUR to USD from the rate attributes to the 2021-02-10 date - special option
+// Get array of the rate attributes to the 2021-02-10 date
+$history->findByDate('2021-02-10');
 
-$history->findByDate();                                       // Get array of the latest rate attributes
-$history->rate('EUR', 'USD');                                 // Convert EUR to USD from the latest rate attributes
-$history->rate('EUR', 'USD')->euroTo(20, 'EUR', 'USD');       // Convert EUR to USD from the latest rate attributes - special option
+// Convert EUR to USD from the rate attributes to the 2021-02-10 date
+$history->findByDate('2021-02-10')->rate(20, 'EUR', 'USD');
+
+// Convert EUR to USD from the rate attributes to the 2021-02-10 date - special option
+$history->findByDate('2021-02-10')->euroTo(20, 'EUR', 'USD');
+
+// Get array of the latest rate attributes
+$history->findByDate();  
+
+// Convert EUR to USD from the latest rate attributes
+$history->rate('EUR', 'USD');
+
+// Convert EUR to USD from the latest rate attributes - special option
+$history->rate('EUR', 'USD')->euroTo(20, 'EUR', 'USD');
 
 ```
 
