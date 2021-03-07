@@ -1,0 +1,27 @@
+{
+    "name": "alxdorosenco/ecb-rates",
+    "description": "This package uses exchange reference rates",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexei Dorosenco",
+            "email": "alexforever1808@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AlxDorosenco\\EcbRates\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AlxDorosenco\\EcbRates\\Tests\\": "tests/"
+        }
+    }
+}
