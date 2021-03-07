@@ -23,5 +23,7 @@
         "psr-4": {
             "AlxDorosenco\\EcbRates\\Tests\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
