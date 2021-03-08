@@ -24,13 +24,13 @@ use AlxDorosenco\EcbRates\CurrencyRates;
 // Latest rate attributes initialization
 $daily = CurrencyRates::daily();
 
-// Convert EUR to USD
+// Exchange 20 EUR to USD
 $daily->rate(20, 'EUR', 'USD');
 
-// Convert EUR to USD - special option
+// Exchange 20 EUR to USD - special option
 $daily->euroTo(20, 'USD');
 
-// Convert USD to JPY
+// Exchange 20 USD to JPY
 $daily->rate(20, 'USD', 'JPY');
 
 ```
@@ -49,20 +49,20 @@ $history = CurrencyRates::history(); // History rate attributes initialization
 // Get array of the rate attributes to the 2021-02-10 date
 $history->findByDate('2021-02-10');
 
-// Convert EUR to USD from the rate attributes to the 2021-02-10 date
+// Exchange 20 EUR to USD from the rate attributes to the 2021-02-10 date
 $history->findByDate('2021-02-10')->rate(20, 'EUR', 'USD');
 
-// Convert EUR to USD from the rate attributes to the 2021-02-10 date - special option
+// Exchange 20 EUR to USD from the rate attributes to the 2021-02-10 date - special option
 $history->findByDate('2021-02-10')->euroTo(20, 'EUR', 'USD');
 
 // Get array of the latest rate attributes
 $history->findByDate();  
 
-// Convert EUR to USD from the latest rate attributes
-$history->rate('EUR', 'USD');
+// Exchange 20 EUR to USD from the latest rate attributes
+$history->rate(20, 'EUR', 'USD');
 
-// Convert EUR to USD from the latest rate attributes - special option
-$history->rate('EUR', 'USD')->euroTo(20, 'EUR', 'USD');
+// Exchange 20 EUR to USD from the latest rate attributes - special option
+$history->rate(20, 'EUR', 'USD')->euroTo(20, 'EUR', 'USD');
 
 ```
 
