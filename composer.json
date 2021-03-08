@@ -1,6 +1,17 @@
 {
     "name": "alxdorosenco/ecb-rates",
-    "description": "This package uses exchange reference rates",
+    "description": "This package uses exchange reference rates from European Central Bank",
+    "keywords": [
+        "ecb-rates",
+        "ecb-currency-rates",
+        "currency",
+        "exchange",
+        "laravel",
+        "lumen",
+        "rates",
+        "European Central Bank"
+    ],
+    "homepage": "https://github.com/alxdorosenco/ecb-currency-rates",
     "license": "MIT",
     "authors": [
         {
