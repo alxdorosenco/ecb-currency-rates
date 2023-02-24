@@ -1,4 +1,7 @@
-# ecb-rates
+# Ecb currency rates
+
+[![Latest Stable Version](http://poser.pugx.org/alxdorosenco/ecb-rates/v)](https://packagist.org/packages/alxdorosenco/ecb-rates) [![Total Downloads](http://poser.pugx.org/alxdorosenco/ecb-rates/downloads)](https://packagist.org/packages/alxdorosenco/ecb-rates) [![Latest Unstable Version](http://poser.pugx.org/alxdorosenco/ecb-rates/v/unstable)](https://packagist.org/packages/alxdorosenco/ecb-rates) [![License](http://poser.pugx.org/alxdorosenco/ecb-rates/license)](https://packagist.org/packages/alxdorosenco/ecb-rates) [![PHP Version Require](http://poser.pugx.org/alxdorosenco/ecb-rates/require/php)](https://packagist.org/packages/alxdorosenco/ecb-rates)
+
 Currency rate convertor from European Central Bank
 
 Url to the latest rate attributes:   https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml
