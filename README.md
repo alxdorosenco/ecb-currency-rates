@@ -5,6 +5,7 @@
 Currency rate convertor from European Central Bank
 
 Url to the latest rate attributes:   https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml
+
 Url to the archived rate attributes: https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml
 
 ## Installation
