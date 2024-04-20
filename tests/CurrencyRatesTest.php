@@ -16,6 +16,8 @@ use AlxDorosenco\EcbRates\Ecb;
 use AlxDorosenco\EcbRates\CurrencyRates;
 use PHPUnit\Framework\TestCase;
 
+ini_set('memory_limit', '-1');
+
 /**
  * Class CurrencyRatesTest
  */

@@ -35,16 +35,16 @@ abstract class Ecb
     /**
      * Parse and convert xml to array
      *
-     * @param string $url
      * @return array
+     * @throws \JsonException
      */
-    protected function parseXmlToArray()
+    protected function parseXmlToArray(): array
     {
-        $xml = simpleXML_load_file($this->url,"SimpleXMLElement",LIBXML_NOCDATA);   // parse xml file
-        $xml = json_encode($xml);                                                                     // convert xml to json
-        $xmlArray = json_decode($xml, true);                                                // convert json to array
+        $xml = simpleXML_load_file($this->url);               // parse xml file
+        $xml = json_encode($xml, JSON_THROW_ON_ERROR);  // convert xml to json
 
-        return $xmlArray;
+        // convert json to array
+        return json_decode($xml, true, 512, JSON_THROW_ON_ERROR);
     }
 
     /**

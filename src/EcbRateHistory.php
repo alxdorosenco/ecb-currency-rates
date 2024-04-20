@@ -14,6 +14,8 @@
 
 namespace AlxDorosenco\EcbRates;
 
+use function PHPUnit\Framework\throwException;
+
 /**
  * Archived reference rates
  *
@@ -30,6 +32,11 @@ class EcbRateHistory extends Ecb
     protected $url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml';
 
     /**
+     * @var array
+     */
+    protected array $parsedAttributes = [];
+
+    /**
      * Build readable array with the rate attributes
      *
      * EcbRateHistory constructor.
@@ -41,11 +48,11 @@ class EcbRateHistory extends Ecb
         foreach ($xmlArray['Cube'] ?? [] as $children){
             foreach ($children as $k => $child){
                 if(!empty($child['@attributes']['time'])){
-                    $this->attributes[$k]['time'] = $child['@attributes']['time'];
+                    $this->parsedAttributes[$k]['time'] = $child['@attributes']['time'];
 
                     foreach ($child['Cube'] ?? [] as $node){
                         if(!empty($node['@attributes'])){
-                            $this->attributes[$k]['rates'][$node['@attributes']['currency']] = $node['@attributes']['rate'];
+                            $this->parsedAttributes[$k]['rates'][$node['@attributes']['currency']] = $node['@attributes']['rate'];
                         }
                     }
                 }
@@ -59,18 +66,23 @@ class EcbRateHistory extends Ecb
      *
      * @param string|null $date
      * @return $this
+     * @throws \Exception
      */
     public function findByDate(string $date = null) : EcbRateHistory
     {
         if(!$date){
-            !$this->attributes ?: $this->attributes = reset($this->attributes);
+            !$this->parsedAttributes ?: $this->parsedAttributes = reset($this->parsedAttributes);
+
             return $this;
         }
 
-        foreach ($this->attributes ?? [] as $attributes) {
-            if(empty($attributes['time']) || $attributes['time'] !== $date) continue;
-            $this->attributes = $attributes;
+        $foundKey = array_search($date, array_column($this->parsedAttributes, 'time'), true);
+
+        if(!$foundKey) {
+            throw new \Exception('Information did not found from the '.$date.' date');
         }
+
+        $this->attributes = $this->parsedAttributes[$foundKey];
 
         return $this;
     }
