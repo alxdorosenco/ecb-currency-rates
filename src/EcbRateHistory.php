@@ -79,7 +79,7 @@ class EcbRateHistory extends Ecb
         $foundKey = array_search($date, array_column($this->parsedAttributes, 'time'), true);
 
         if(!$foundKey) {
-            throw new \Exception('Information did not found from the '.$date.' date');
+            throw new \Exception('Sorry, the date '.$date.' you are looking for could not be found');
         }
 
         $this->attributes = $this->parsedAttributes[$foundKey];

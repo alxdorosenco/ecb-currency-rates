@@ -46,12 +46,28 @@ class CurrencyRatesTest extends TestCase
         $this->assertNotEmpty($currencyRates->euroTo(20,'USD'));
     }
 
+    public function testFindByDateException()
+    {
+        $this->expectException(\Exception::class);
+
+        CurrencyRates::history()->findByDate('2024-01-27');
+    }
+
     /**
      * @throws Exception
      */
     public function testFindByDate()
     {
         $this->assertNotEmpty(CurrencyRates::history()->findByDate('2021-02-10'));
+
+        $this->assertEquals('2021-02-10', CurrencyRates::history()->findByDate('2021-02-10')->time());
+
+        $history = CurrencyRates::history();
+        $object = $history
+            ->findByDate('2021-02-10')
+            ->findByDate('2021-02-15');
+
+        $this->assertEquals('2021-02-15', $object->time());
 
         $this->assertIsNumeric(CurrencyRates::history()->findByDate('2021-02-10')->rate(20,'EUR','USD'));
         $this->assertIsNumeric(CurrencyRates::history()->findByDate('2021-02-10')->euroTo(20,'USD'));
